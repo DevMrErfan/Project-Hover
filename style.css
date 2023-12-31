@@ -1,0 +1,182 @@
+body{
+         
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #010101;
+    animation: slide-in-top 0.3s both;
+}
+
+/* Card Styles */
+.card {
+width: 400px;
+height: 500px;
+padding: 15px;
+border-radius: 12px;
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+background-color: rgba(241, 76, 76, 0.6);
+backdrop-filter: blur(20px);
+text-align: center;
+border: 13px solid #8a2387;
+
+/* Transform Propertys */
+--rotate-animation: rotate(45deg);
+--scale-animation: scale(0);
+/*Backgrounds - Social Media Hover */
+--bg-facebook: blue;
+--bg-instagram: linear-gradient(to right, #8a2387, #e94057, #f27121);
+--bg-twitter: rgb(25, 173, 206);
+--bg-linkedin: rgb(30, 48, 131);
+
+}
+
+@keyframes rotBGimg {
+from {
+transform: rotate(0deg);
+}
+
+to {
+transform: rotate(360deg);
+}
+}
+
+
+.card::before {
+content: '';
+height: 110%;
+width: 110%;
+position: absolute;
+top: -5%;
+left: -5%;
+z-index: -1;
+background: linear-gradient(
+to right,
+#ef2607,
+#2e3f2f,
+rgba(184, 184, 223, 0.493)
+);
+
+border-radius: 20px;
+filter: blur(3px);
+
+}
+
+.card:hover {
+box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+}
+
+.hover2 {
+color: #fbcccc;
+width: 100%;
+margin: 0;
+font-size: 40px;
+font-weight: 600;
+position: absolute;
+top: 50%;
+left: 0;
+text-align: center;
+letter-spacing: 2px;
+pointer-events: none;
+transform: scale(1) translateY(-50%);
+font-family: var(--font-mulish);
+transition: transform 500ms;
+}
+
+.card:hover .hover2 {
+transform: scale(0);
+}
+
+.figure {
+width: 100%;
+height: 65%;
+border-radius: 10px;
+overflow: hidden;
+transform: var(--rotate-animation) var(--scale-animation);
+transition: transform 600ms ease 100ms;
+}
+
+.card:hover .figure {
+--rotate-animation: rotate(0);
+--scale-animation: scale(1);
+}
+
+.figure svg {
+height: 100%;
+width: 100%;
+object-fit: cover;
+filter: drop-shadow(0 0 2px #0f0c29);
+}
+
+.info {
+display: flex;
+flex-direction: column;
+transform: var(--scale-animation);
+transition: transform 600ms ease 100ms;
+}
+
+.card:hover .info {
+--scale-animation: scale(1);
+}
+
+.name1 {
+color: #edd1d1;
+font-size: 28px;
+letter-spacing: 1px;
+font-family: var(--font-AR-One-Sans);
+}
+
+.ocu {
+color: rgb(204, 217, 228);
+font-family: var(--font-mulish);
+text-transform: uppercase;
+font-size: 18px;
+letter-spacing: 2px;
+}
+
+.link1 {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+margin-top: 3rem;
+--transform-animation: translateY(-10px);
+}
+
+.link1 svg {
+height: 55px;
+width: 55px;
+padding: 10px;
+background-color: rgba(128, 128, 128, 0.211);
+border-radius: 15px;
+cursor: pointer;
+transition: background .3s ease,
+      transform .2s ease;
+}
+
+.link1 svg:hover {
+transform: var(--transform-animation);
+box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+}
+
+/* Hover Colors */
+.link1 svg:nth-child(1):hover {
+background: var(--bg-facebook);
+}
+
+.link1 svg:nth-child(2):hover {
+background: var(--bg-instagram);
+}
+
+.link1 svg:nth-child(3):hover {
+background: var(--bg-twitter);
+}
+
+.link1 svg:nth-child(4):hover {
+background: var(--bg-linkedin);
+}
